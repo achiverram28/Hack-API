@@ -29,4 +29,10 @@ def hackathons(request:Request):
 @app.get("/hackathons/mlh")
 def mlh_hac_all():
     return mlh.fetchAll()
+@app.get("/hackathons/mlh/month={month}")
+def mlh_hac_month(month):
+    return mlh.fetch_det_month(month)
+@app.get("/hackathons/mlh/type={typee}")
+def mlh_hac_type(typee):
+    return mlh.fetch_det_type(typee)
     
