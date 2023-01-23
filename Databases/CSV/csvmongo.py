@@ -3,7 +3,6 @@ import pymongo
 import urllib
 import certifi
 df = pd.read_csv('Hac1.csv')
-df_1=pd.read_csv("Hackathons_database.csv")
 df_2=pd.read_csv("Hac2.csv")
 df_3=pd.read_csv("Hac3.csv")
 df_4=pd.read_csv("Hac4.csv")
@@ -12,9 +11,9 @@ df_6=pd.read_csv("Hac6.csv")
 df_7=pd.read_csv("Hac7.csv")
 df_8=pd.read_csv("Hac8.csv")
 df_9=pd.read_csv("Hac9.csv")
+df_10=pd.read_csv("Hac10.csv")
 # print(df.head())
 data = df.to_dict(orient="records")
-data_1=df_1.to_dict(orient="records")
 data_2=df_2.to_dict(orient="records")
 data_3=df_3.to_dict(orient="records")
 data_4=df_4.to_dict(orient="records")
@@ -23,6 +22,7 @@ data_6=df_6.to_dict(orient="records")
 data_7=df_7.to_dict(orient="records")
 data_8=df_8.to_dict(orient="records")
 data_9=df_9.to_dict(orient="records")
+data_10=df_10.to_dict(orient="records")
 # print(data)
 client=pymongo.MongoClient("mongodb+srv://"+urllib.parse.quote_plus("ram")+":"+urllib.parse.quote_plus("123456789!@#$%^&*")+"@api-dev.gwndkto.mongodb.net/?retryWrites=true&w=majority",tlsCAFile=certifi.where())
 ### Dont forget to add tlsCAFile=certifi.where() for ssl certification , by installing pip3 install certifi
@@ -45,9 +45,6 @@ COLLECTION_NAME="EventBriteHackathons"
 collection=db[COLLECTION_NAME]
 # print(db.list_collection_names())
 collection.insert_many(data)
-COLLECTION_NAME_1="MLH-Hackathons"
-collection_1=db[COLLECTION_NAME_1]
-collection_1.insert_many(data_1)
 COLLECTION_NAME_2="Devfolio-Hackathons"
 collection_2=db[COLLECTION_NAME_2]
 collection_2.insert_many(data_2)
@@ -72,5 +69,8 @@ collection_8.insert_many(data_8)
 COLLECTION_NAME_9="Competitive-Coding"
 collection_9=db[COLLECTION_NAME_9]
 collection_9.insert_many(data_9)
+COLLECTION_NAME_10="MLH-Hackathons"
+collection_10=db[COLLECTION_NAME_10]
+collection_10.insert_many(data_10)
 
 
