@@ -1,0 +1,12 @@
+h1 {
+  color: black;
+  text-align: center;
+}
+.short-desc {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+ul {
+  list-style: none;
+}
