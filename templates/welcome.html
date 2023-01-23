@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Item Details</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>WELCOME TO HACK-API</h1>
+    <div class="short-desc">
+      This is a perfect spot , if you are looking for an API which provides
+      details about various tech events. Beginning with an initial stage of
+      development , we have these features.
+    </div>
+    <div>
+      <ul>
+        <li><a href="{{url_for('hackathons')}}">Hackathons</a></li>
+        <li><a>Google Developer Group Events</a></li>
+        <li><a>AWS Events</a></li>
+        <li><a>Microsoft Events</a></li>
+        <li><a>iOS events</a></li>
+        <li><a>Student Developer Support</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
