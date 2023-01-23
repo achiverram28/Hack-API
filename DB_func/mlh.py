@@ -10,3 +10,15 @@ def fetchAll():
     for ob in x:
         li.append(ob)
     return li
+def fetch_det_month(month):
+    x = events.find({"Month":month},{'_id':False,"Unnamed: 0":False})
+    li=[]
+    for ob in x:
+        li.append(ob)
+    return li
+def fetch_det_type(typee):
+    x = events.find({"Notes":typee},{'_id':False,"Unnamed: 0":False})
+    li=[]
+    for ob in x:
+        li.append(ob)
+    return li
