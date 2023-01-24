@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
-from DB_func import mlh, devfolio
+from DB_func import mlh, devfolio , open_source
 
 app = FastAPI()
 origins = [
@@ -42,5 +42,15 @@ def devfolio_all():
 @app.get("/hackathons/devfolio/month={month}")
 def devfolio_mon(month):
     return devfolio.fetch_by_mon(month)
-
-    
+@app.get("/hackathons/open_source")
+def open_source_all():
+    return open_source.fetchAll()
+@app.get("/hackathons/open_source/month={month}")
+def open_source_month(month):
+    return open_source.fetch_by_mon(month)
+@app.get("/hackathons/open_source/name={name}")
+def open_source_event_name(name):
+    return open_source.fetch_desc(name)
+@app.get("/hackathons/open_source/name={name}/desc")
+def open_source_event_desc(name):
+    return open_source.fetch_name_desc(name)
