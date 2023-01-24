@@ -54,3 +54,6 @@ def open_source_event_name(name):
 @app.get("/hackathons/open_source/name={name}/desc")
 def open_source_event_desc(name):
     return open_source.fetch_name_desc(name)
+@app.get("/hackathons/competitive_coding")
+def comp_coding():
+    return cp.fetchAll()
