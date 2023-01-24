@@ -3,7 +3,8 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
-from DB_func import mlh
+from DB_func import mlh, devfolio
+
 app = FastAPI()
 origins = [
     "http://localhost",
@@ -35,4 +36,11 @@ def mlh_hac_month(month):
 @app.get("/hackathons/mlh/type={typee}")
 def mlh_hac_type(typee):
     return mlh.fetch_det_type(typee)
+@app.get("/hackathons/devfolio")
+def devfolio_all():
+    return devfolio.fetchAll()
+@app.get("/hackathons/devfolio/month={month}")
+def devfolio_mon(month):
+    return devfolio.fetch_by_mon(month)
+
     
