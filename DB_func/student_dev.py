@@ -8,5 +8,7 @@ def fetchAll():
     x = events.find({},{'_id':False,"Unnamed: 0":False})
     li=[]
     for ob in x:
+        if ob in li:
+            continue
         li.append(ob)
     return li
