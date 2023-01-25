@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
-from DB_func import mlh, devfolio , open_source , cp , event_brite, student_dev , gdg
+from DB_func import mlh, devfolio , open_source , cp , event_brite, student_dev , gdg , aws
 
 app = FastAPI()
 origins = [
@@ -67,3 +67,9 @@ def student_dev_support():
 @app.get("/gdg_events")
 def gdg_events():
     return gdg.fetchAll()
+@app.get("/aws_events")
+def aws_events():
+    return aws.fetchAll()
+@app.get("/aws_events/name={name}/desc")
+def aws_desc(name):
+    return aws.fetch_name_desc(name)
