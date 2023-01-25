@@ -3,11 +3,12 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
-from DB_func import mlh, devfolio , open_source
+from DB_func import mlh, devfolio , open_source , cp , event_brite, student_dev , gdg
 
 app = FastAPI()
 origins = [
     "http://localhost",
+    
 ]
 app.add_middleware(
     CORSMiddleware,
@@ -57,6 +58,12 @@ def open_source_event_desc(name):
 @app.get("/hackathons/competitive_coding")
 def comp_coding():
     return cp.fetchAll()
+# @app.get("/hackathons/more_hackathons")
+# def more_hackathons():
+#     return event_brite.fetchAll()
 @app.get("/student_dev_support")
 def student_dev_support():
     return student_dev.fetchAll()
+@app.get("/gdg_events")
+def gdg_events():
+    return gdg.fetchAll()
