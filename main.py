@@ -61,14 +61,19 @@ def comp_coding():
 # @app.get("/hackathons/more_hackathons")
 # def more_hackathons():
 #     return event_brite.fetchAll()
+
 @app.get("/student_dev_support.json")
-def student_dev_support():
+def student_dev_support_json():
     return student_dev.fetchAll()
+@app.get("/student_dev_support",response_class=HTMLResponse)
+async def student_dev_support(request:Request):
+    ans = student_dev.fetchAll()
+    return templates.TemplateResponse("student_dev.html",{"request":request,"ans":ans})
 @app.get("/gdg_events.json")
 def gdg_events_json():
     return gdg.fetchAll()
 @app.get("/gdg_events",response_class=HTMLResponse)
-async def gdg_events_json(request:Request):
+async def gdg_events(request:Request):
     ans = gdg.fetchAll()
     return templates.TemplateResponse("gdg.html",{"request":request,"ans":ans})
 @app.get("/aws_events.json")
