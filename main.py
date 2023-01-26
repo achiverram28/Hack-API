@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
-from DB_func import mlh, devfolio , open_source , cp , event_brite, student_dev , gdg , aws , ios
+from DB_func import mlh, devfolio , open_source , cp , event_brite, student_dev , gdg , aws , ios , microsoft
 
 app = FastAPI()
 origins = [
@@ -96,3 +96,10 @@ async def ios_events(request:Request):
 @app.get("/ios_events/name={name}/desc")
 def ios_desc(name):
     return ios.fetch_name_desc(name)
+@app.get("/microsoft_events.json")
+def microsoft_events_json():
+    return microsoft.fetchAll()
+@app.get("/microsoft_events",response_class=HTMLResponse)
+async def microsoft_events(request:Request):
+    ans = microsoft.fetchAll()
+    return templates.TemplateResponse("microsoft.html",{"request":request,"ans":ans})
