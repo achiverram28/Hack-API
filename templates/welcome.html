@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Item Details</title>
+    <title>API Details</title>
     <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet" />
   </head>
   <body>
@@ -13,11 +13,17 @@
     <div>
       <ul>
         <li><a href="{{url_for('hackathons')}}">Hackathons</a></li>
-        <li><a>Google Developer Group Events</a></li>
-        <li><a>AWS Events</a></li>
-        <li><a>Microsoft Events</a></li>
-        <li><a>iOS events</a></li>
-        <li><a href="{{url_for('student_dev_support')}}">Student Developer Support</a></li>
+        <li>
+          <a href="{{url_for('gdg_events')}}">Google Developer Group Events</a>
+        </li>
+        <li><a href="{{url_for('aws_events')}}">AWS Events</a></li>
+        <li><a href="{{url_for('microsoft_events')}}">Microsoft Events</a></li>
+        <li><a href="{{url_for('ios_events')}}">iOS events</a></li>
+        <li>
+          <a href="{{url_for('student_dev_support')}}"
+            >Student Developer Support</a
+          >
+        </li>
       </ul>
     </div>
   </body>
