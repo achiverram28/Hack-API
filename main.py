@@ -28,48 +28,52 @@ def welcome(request:Request):
 @app.get("/hackathons",response_class=HTMLResponse)
 def hackathons(request:Request):
     return templates.TemplateResponse("hackathons.html",{"request":request})
-@app.get("/hackathons/mlh")
+@app.get("/hackathons/mlh.json")
 def mlh_hac_all():
     return mlh.fetchAll()
-@app.get("/hackathons/mlh/month={month}")
+@app.get("/hackathons/mlh/month={month}.json")
 def mlh_hac_month(month):
     return mlh.fetch_det_month(month)
-@app.get("/hackathons/mlh/type={typee}")
+@app.get("/hackathons/mlh/type={typee}.json")
 def mlh_hac_type(typee):
     return mlh.fetch_det_type(typee)
-@app.get("/hackathons/devfolio")
+@app.get("/hackathons/devfolio.json")
 def devfolio_all():
     return devfolio.fetchAll()
-@app.get("/hackathons/devfolio/month={month}")
+@app.get("/hackathons/devfolio/month={month}.json")
 def devfolio_mon(month):
     return devfolio.fetch_by_mon(month)
-@app.get("/hackathons/open_source")
+@app.get("/hackathons/open_source.json")
 def open_source_all():
     return open_source.fetchAll()
-@app.get("/hackathons/open_source/month={month}")
+@app.get("/hackathons/open_source/month={month}.json")
 def open_source_month(month):
     return open_source.fetch_by_mon(month)
-@app.get("/hackathons/open_source/name={name}")
+@app.get("/hackathons/open_source/name={name}.json")
 def open_source_event_name(name):
     return open_source.fetch_desc(name)
 @app.get("/hackathons/open_source/name={name}/desc")
 def open_source_event_desc(name):
     return open_source.fetch_name_desc(name)
-@app.get("/hackathons/competitive_coding")
+@app.get("/hackathons/competitive_coding.json")
 def comp_coding():
     return cp.fetchAll()
 # @app.get("/hackathons/more_hackathons")
 # def more_hackathons():
 #     return event_brite.fetchAll()
-@app.get("/student_dev_support")
+@app.get("/student_dev_support.json")
 def student_dev_support():
     return student_dev.fetchAll()
-@app.get("/gdg_events")
-def gdg_events():
+@app.get("/gdg_events.json")
+def gdg_events_json():
     return gdg.fetchAll()
-@app.get("/aws_events")
+@app.get("/gdg_events",response_class=HTMLResponse)
+async def gdg_events_json(request:Request):
+    ans = gdg.fetchAll()
+    return templates.TemplateResponse("gdg.html",{"request":request,"ans":ans})
+@app.get("/aws_events.json")
 def aws_events():
     return aws.fetchAll()
-@app.get("/aws_events/name={name}/desc")
+@app.get("/aws_events/name={name}/desc.json")
 def aws_desc(name):
     return aws.fetch_name_desc(name)
