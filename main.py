@@ -28,6 +28,10 @@ def welcome(request:Request):
 @app.get("/hackathons",response_class=HTMLResponse)
 def hackathons(request:Request):
     return templates.TemplateResponse("hackathons.html",{"request":request})
+@app.get("/hackathons/mlh",response_class=HTMLResponse)
+async def mlh_hac(request:Request):
+    ans = mlh.fetchAll() 
+    return templates.TemplateResponse("mlh.html",{"request":request,"ans":ans})
 @app.get("/hackathons/mlh.json")
 def mlh_hac_all():
     return mlh.fetchAll()
@@ -56,7 +60,7 @@ def open_source_event_name(name):
 def open_source_event_desc(name):
     return open_source.fetch_name_desc(name)
 @app.get("/hackathons/competitive_coding.json")
-def comp_coding():
+def comp_coding_json():
     return cp.fetchAll()
 # @app.get("/hackathons/more_hackathons")
 # def more_hackathons():
