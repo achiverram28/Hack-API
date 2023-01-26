@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
-from DB_func import mlh, devfolio , open_source , cp , event_brite, student_dev , gdg , aws
+from DB_func import mlh, devfolio , open_source , cp , event_brite, student_dev , gdg , aws , ios
 
 app = FastAPI()
 origins = [
@@ -77,12 +77,19 @@ async def gdg_events(request:Request):
     ans = gdg.fetchAll()
     return templates.TemplateResponse("gdg.html",{"request":request,"ans":ans})
 @app.get("/aws_events.json")
-def aws_events():
+def aws_events_json():
     return aws.fetchAll()
-@app.get("/aws_events/name={name}/desc.json")
+@app.get("/aws_events/name={name}/desc")
 def aws_desc(name):
     return aws.fetch_name_desc(name)
 @app.get("/aws_events",response_class=HTMLResponse)
 async def aws_events(request:Request):
     ans = aws.fetchAll()
     return templates.TemplateResponse("student_dev.html",{"request":request,"ans":ans})
+@app.get("/ios_events.json")
+def ios_events_json():
+    return ios.fetchAll()
+@app.get("/ios_events",response_class=HTMLResponse)
+async def ios_events(request:Request):
+    ans = ios.fetchAll()
+    return templates.TemplateResponse("ios.html",{"request":request,"ans":ans})
