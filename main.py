@@ -52,8 +52,12 @@ async def devfolio_hac(request:Request):
 def devfolio_mon(month):
     return devfolio.fetch_by_mon(month)
 @app.get("/hackathons/open_source.json")
-def open_source_all():
+def open_source_json():
     return open_source.fetchAll()
+@app.get("/hackathons/open_source",response_class=HTMLResponse)
+async def open_source_all(request:Request):
+    ans = open_source.fetchAll()
+    return templates.TemplateResponse("open_source.html",{"request":request,"ans":ans})
 @app.get("/hackathons/open_source/month={month}.json")
 def open_source_month(month):
     return open_source.fetch_by_mon(month)
