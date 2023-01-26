@@ -70,6 +70,10 @@ def open_source_event_desc(name):
 @app.get("/hackathons/competitive_coding.json")
 def comp_coding_json():
     return cp.fetchAll()
+@app.get("/hackathons/competitive_coding",response_class=HTMLResponse)
+async def comp_coding(request:Request):
+    ans = cp.fetchAll()
+    return templates.TemplateResponse("cp.html",{"request":request,"ans":ans})
 # @app.get("/hackathons/more_hackathons")
 # def more_hackathons():
 #     return event_brite.fetchAll()
