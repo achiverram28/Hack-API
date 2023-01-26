@@ -42,8 +42,12 @@ def mlh_hac_month(month):
 def mlh_hac_type(typee):
     return mlh.fetch_det_type(typee)
 @app.get("/hackathons/devfolio.json")
-def devfolio_all():
+def devfolio_json():
     return devfolio.fetchAll()
+@app.get("/hackathons/devfolio",response_class=HTMLResponse)
+async def devfolio_hac(request:Request):
+    ans = devfolio.fetchAll()
+    return templates.TemplateResponse("devfolio.html",{"request":request,"ans":ans})
 @app.get("/hackathons/devfolio/month={month}.json")
 def devfolio_mon(month):
     return devfolio.fetch_by_mon(month)
