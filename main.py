@@ -93,3 +93,6 @@ def ios_events_json():
 async def ios_events(request:Request):
     ans = ios.fetchAll()
     return templates.TemplateResponse("ios.html",{"request":request,"ans":ans})
+@app.get("/ios_events/name={name}/desc")
+def ios_desc(name):
+    return ios.fetch_name_desc(name)
