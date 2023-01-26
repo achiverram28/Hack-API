@@ -8,12 +8,16 @@ def fetchAll():
     x = events.find({},{"_id":False,"Unnamed: 0":False})
     li=[]
     for i in x:
+        if i in li:
+            continue
         li.append(i)
     return li
 def fetch_by_mon(month):
     x = events.find({"Month":month},{"_id":False,"Unnamed: 0":False})
     li=[]
     for i in x:
+        if i in li:
+            continue
         li.append(i)
     return li
 def fetch_desc(name):
@@ -25,12 +29,18 @@ def fetch_desc(name):
     x = events.find({"Names":st},{"_id":False,"Unnamed: 0":False})
     li=[]
     for i in x:
-        if i["Names"]==st:
+        if i not in li:
+         if i["Names"]==st:
             li.append(i)
     return li[0]
 def fetch_name_desc(name):
     res=fetch_desc(name)
     return [res["Description"]]
+
+
+    
+
+
 
 
     
