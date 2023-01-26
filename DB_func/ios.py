@@ -12,3 +12,19 @@ def fetchAll():
             continue
         li.append(ob)
     return li
+def fetch_desc(name):
+    s = name.split("_")
+    st=""
+    for it in s:
+        st=st+it+" "
+    st=st.strip()
+    x = events.find({"Name":st},{"_id":False,"Unnamed: 0":False})
+    li=[]
+    for i in x:
+        if i not in li:
+          if i["Name"]==st:
+             li.append(i)
+    return li[0]
+def fetch_name_desc(name):
+    res=fetch_desc(name)
+    return [res["Description"]]
