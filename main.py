@@ -82,3 +82,7 @@ def aws_events():
 @app.get("/aws_events/name={name}/desc.json")
 def aws_desc(name):
     return aws.fetch_name_desc(name)
+@app.get("/aws_events",response_class=HTMLResponse)
+async def aws_events(request:Request):
+    ans = aws.fetchAll()
+    return templates.TemplateResponse("student_dev.html",{"request":request,"ans":ans})
