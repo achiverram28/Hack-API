@@ -67,8 +67,12 @@ async def devfolio_hac(request:Request,Authorize: AuthJWT = Depends(), user_id: 
     ans = devfolio.fetchAll()
     return templates.TemplateResponse("devfolio.html",{"request":request,"ans":ans})
 @app.get("/hackathons/devfolio/month={month}.json")
-def devfolio_mon(month,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
+def devfolio_mon_json(month,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
     return devfolio.fetch_by_mon(month)
+@app.get("/hackathons/devfolio/month={month}",response_class=HTMLResponse)
+async def devfolio_mon(month,request:Request,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
+    ans = devfolio.fetch_by_mon(month)
+    return templates.TemplateResponse("devfolio.html",{"request":request,"ans":ans})
 @app.get("/hackathons/open_source.json")
 def open_source_json(Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
     return open_source.fetchAll()
@@ -137,4 +141,3 @@ def microsoft_events_json(Authorize: AuthJWT = Depends(), user_id: str = Depends
 async def microsoft_events(request:Request,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
     ans = microsoft.fetchAll()
     return templates.TemplateResponse("microsoft.html",{"request":request,"ans":ans})
-
