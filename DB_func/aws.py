@@ -22,6 +22,8 @@ def fetch_desc(name):
     li=[]
     for i in x:
         if i["Name"]==st:
+            if i["Name"] in li:
+                continue
             li.append(i)
     return li[0]
 def fetch_name_desc(name):
