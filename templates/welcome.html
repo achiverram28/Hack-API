@@ -1,30 +1,169 @@
-<html>
+<!DOCTYPE html>
   <head>
-    <title>API Details</title>
+    <title>Item Details</title>
     <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet" />
   </head>
   <body>
-    <h1>WELCOME TO HACK-API</h1>
-    <div class="short-desc">
-      This is a perfect spot , if you are looking for an API which provides
-      details about various tech events. Beginning with an initial stage of
-      development , we have these features.
+    <header class="header">
+      <div>
+          <h1 class="header-h1">WELCOME TO HACK-API</h1>
+        <br />
+        <p class="context">
+          This is a perfect spot , if you are looking for an API which provides
+          details about various tech events. Beginning with an initial stage of
+          development , we have these features.
+        </p>
+      </div>
+    </header>
+    <div class="container">
+      <p>
+        <img src="../static/assets/help-img.jpeg" alt="Github" class="img_class" width="100%"/>
+      </p>
+      <p class="text">
+
+        <a href="http://127.0.0.1:8000/docs">
+          <button class="buttons">
+       
+              Swagger UI
+
+          </button>
+        </a>
+        <br>
+        <br />
+
+        <a href="http://127.0.0.1:8000/redoc">
+          <button class="buttons">
+       
+              Redoc
+
+          </button>
+        </a>
+        <br>
+        <br />
+
+        <a href="https://github.com/achiverram28/Hack-API/tree/main">
+          <button class="buttons">
+       
+              README
+
+          </button>
+        </a>
+      </p>
     </div>
-    <div>
-      <ul>
-        <li><a href="{{url_for('hackathons')}}">Hackathons</a></li>
-        <li>
-          <a href="{{url_for('gdg_events')}}">Google Developer Group Events</a>
-        </li>
-        <li><a href="{{url_for('aws_events')}}">AWS Events</a></li>
-        <li><a href="{{url_for('microsoft_events')}}">Microsoft Events</a></li>
-        <li><a href="{{url_for('ios_events')}}">iOS events</a></li>
-        <li>
-          <a href="{{url_for('student_dev_support')}}"
-            >Student Developer Support</a
-          >
-        </li>
-      </ul>
+    <div class="container">
+      <p>
+        <img src="../static/assets/hackathon-img.webp" alt="Github" class="img_class" width="100%"/>
+      </p>
+      <p class="text">
+        Hackathons - Details
+        <br />
+        <br />
+        <br />
+        <br />
+        <a href="{{url_for('hackathons')}}">
+          <button class="buttons">
+       
+              View
+
+          </button>
+        </a>
+      </p>
     </div>
+    <div class="container">
+      <p>
+        <img src="../static/assets/gdg-img.png" alt="Github" class="img_class" width="100%"/>
+      </p>
+      <p class="text">
+        GDG-Event Details
+        <br />
+        <br />
+        <br />
+        <br />
+        <a href="{{url_for('gdg_events')}}">
+          <button class="buttons">
+     
+              View
+     
+          </button>
+        </a>
+      </p>
+    </div>
+    <div class="container">
+      <p>
+        <img src="../static/assets/aws-img.png" alt="Github" class="img_class" width="100%"/>
+      </p>
+      <p class="text">
+        AWS-Event Details
+        <br />
+        <br />
+        <br />
+        <br />
+        <a href="{{url_for('aws_events')}}">
+          <button class="buttons">
+      
+              View
+   
+          </button>
+        </a>
+      </p>
+    </div>
+    <div class="container">
+      <p>
+        <img src="../static/assets/microsoft-img.jpeg" alt="Github" class="img_class" width="100%"/>
+      </p>
+      <p class="text">
+        Microsoft-Events Details
+        <br />
+        <br />
+        <br />
+        <br />
+        <a href="{{url_for('microsoft_events')}}">
+          <button class="buttons">
+        
+              View
+           
+          </button>
+        </a>
+      </p>
+    </div>
+    <div class="container">
+      <p>
+        <img src="../static/assets/iOS-img.jpeg" alt="Github" class="img_class" width="100%"/>
+      </p>
+      <p class="text">
+        iOS-Events Details
+        <br />
+        <br />
+        <br />
+        <br />
+        <a href="{{url_for('ios_events')}}">
+          <button class="buttons">
+
+              View
+     
+          </button>
+        </a>
+      </p>
+    </div>
+    <div class="container">
+      <p>
+        <img src="../static/assets/stdevsu-img.png" alt="Github" class="img_class" width="100%"/>
+      </p>
+      <p class="text">
+        Student-Developer-Support Details
+        <br />
+        <br />
+        <br />
+        <br />
+        <a href="{{url_for('student_dev_support')}}">
+          <button class="buttons">
+        
+              View
+      
+          </button>
+        </a>
+      </p>
+    </div>
+  
   </body>
 </html>
