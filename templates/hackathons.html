@@ -1,24 +1,124 @@
-<html>
+<!DOCTYPE html>
   <head>
     <title>Item Details</title>
     <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet" />
   </head>
   <body>
-    <h1>WELCOME TO HACKATHON PART OF API</h1>
-    <div class="short-desc">
-      This gives the details of various hackathons. You have a few of them ,
-      listed below
+    <header class="header">
+      <div>
+        <h1 class="header-h1">WELCOME TO HACKATHONS</h1>
+        <br />
+        <p class="context">
+          In our Hack API we have tried to collect most number of hackathon
+          details. This gives the details of those hackathons. You have a few of
+          them , listed below
+        </p>
+      </div>
+    </header>
+
+    <div class="container">
+      <p>
+        <img
+          src="../static/assets/mlh-img.jpeg"
+          alt="Github"
+          class="img_class"
+          width="100%"
+        />
+      </p>
+      <p class="text">
+        MLH - Hackathons Details
+        <br />
+        <br />
+        <br />
+        <br />
+        <a href="{{url_for('mlh_hac')}}">
+          <button class="buttons">View</button>
+        </a>
+      </p>
     </div>
-    <div>
-      <ul>
-        <li><a href="{{url_for('mlh_hac')}}">MLH Hackathons</a></li>
-        <li><a href="{{url_for('devfolio_hac')}}">DevFolio Hackathons</a></li>
-        <li><a>EventBrite Hackathons</a></li>
-        <li>
-          <a href="{{url_for('open_source_all')}}">Open Source Hackathons </a>
-        </li>
-        <li><a href="{{url_for('comp_coding')}}">Competitive-Coding </a></li>
-      </ul>
+    <div class="container">
+      <p>
+        <img
+          src="../static/assets/devfolio-img.png"
+          alt="Github"
+          class="img_class"
+          width="100%"
+        />
+      </p>
+      <p class="text">
+        Devfolio Hackathons
+        <br />
+        <br />
+        <br />
+        <br />
+        <a href="{{url_for('devfolio_hac')}}">
+          <button class="buttons">View</button>
+        </a>
+      </p>
+    </div>
+    <div class="container">
+      <p>
+        <img
+          src="../static/tech-bacg.webp"
+          alt="Github"
+          class="img_class"
+          width="70%"
+          style="padding-left: 5rem"
+        />
+      </p>
+      <p class="text">
+        More Hackathons
+        <br />
+        <br />
+        <br />
+        <br />
+        <a href="###">
+          <button class="buttons">Coming soon..</button>
+        </a>
+      </p>
+    </div>
+    <div class="container">
+      <p>
+        <img
+          src="../static/assets/open-source-img.png"
+          alt="Github"
+          class="img_class"
+          width="70%"
+          style="padding-left: 5rem"
+        />
+      </p>
+      <p class="text">
+        Open Source Events
+        <br />
+        <br />
+        <br />
+        <br />
+        <a href="{{url_for('open_source_all')}}">
+          <button class="buttons">View</button>
+        </a>
+      </p>
+    </div>
+    <div class="container">
+      <p>
+        <img
+          src="../static/assets/cp-img.png"
+          alt="Github"
+          class="img_class"
+          width="70%"
+          style="padding-left: 5rem"
+        />
+      </p>
+      <p class="text">
+        Competitive-Coding Contests
+        <br />
+        <br />
+        <br />
+        <br />
+        <a href="{{url_for('comp_coding')}}">
+          <button class="buttons">View</button>
+        </a>
+      </p>
     </div>
   </body>
 </html>
+
