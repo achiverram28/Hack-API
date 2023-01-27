@@ -81,10 +81,14 @@ async def open_source_all(request:Request,Authorize: AuthJWT = Depends(), user_i
     ans = open_source.fetchAll()
     return templates.TemplateResponse("open_source.html",{"request":request,"ans":ans})
 @app.get("/hackathons/open_source/month={month}.json")
-def open_source_month(month,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
+def open_source_month_json(month,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
     return open_source.fetch_by_mon(month)
+@app.get("/hackathons/open_source/month={month}",response_class=HTMLResponse)
+async def open_source_month(month,request:Request,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
+    ans = open_source.fetch_by_mon(month)
+    return templates.TemplateResponse("open_source.html",{"request":request,"ans":ans})
 @app.get("/hackathons/open_source/name={name}.json")
-def open_source_event_name(name,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
+def open_source_event_name_json(name,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
     return open_source.fetch_desc(name)
 @app.get("/hackathons/open_source/name={name}/desc")
 def open_source_event_desc(name,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
@@ -141,3 +145,4 @@ def microsoft_events_json(Authorize: AuthJWT = Depends(), user_id: str = Depends
 async def microsoft_events(request:Request,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
     ans = microsoft.fetchAll()
     return templates.TemplateResponse("microsoft.html",{"request":request,"ans":ans})
+
