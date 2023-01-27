@@ -36,7 +36,7 @@ app.include_router(user.router, tags=['Users'], prefix='/api/users')
 def welcome(request:Request):
     return templates.TemplateResponse("welcome.html",{"request":request})
 @app.get("/hackathons",response_class=HTMLResponse)
-def hackathons(request:Request,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
+def hackathons(request:Request):
     return templates.TemplateResponse("hackathons.html",{"request":request})
 @app.get("/hackathons/mlh",response_class=HTMLResponse)
 async def mlh_hac(request:Request,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
@@ -46,11 +46,19 @@ async def mlh_hac(request:Request,Authorize: AuthJWT = Depends(), user_id: str =
 def mlh_hac_all(Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
     return mlh.fetchAll()
 @app.get("/hackathons/mlh/month={month}.json")
-def mlh_hac_month(month,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
+def mlh_hac_month_json(month,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
     return mlh.fetch_det_month(month)
+@app.get("/hackathons/mlh/month={month}",response_class=HTMLResponse)
+async def mlh_hac_month(month,request:Request,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
+    ans = mlh.fetch_det_month(month)
+    return templates.TemplateResponse("mlh.html",{"request":request,"ans":ans})
 @app.get("/hackathons/mlh/type={typee}.json")
 def mlh_hac_type(typee,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
     return mlh.fetch_det_type(typee)
+@app.get("/hackathons/mlh/type={typee}",response_class=HTMLResponse)
+async def mlh_hac_month(typee,request:Request,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
+    ans = mlh.fetch_det_type(typee)
+    return templates.TemplateResponse("mlh.html",{"request":request,"ans":ans})
 @app.get("/hackathons/devfolio.json")
 def devfolio_json( Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
     return devfolio.fetchAll()
@@ -129,3 +137,4 @@ def microsoft_events_json(Authorize: AuthJWT = Depends(), user_id: str = Depends
 async def microsoft_events(request:Request,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
     ans = microsoft.fetchAll()
     return templates.TemplateResponse("microsoft.html",{"request":request,"ans":ans})
+
