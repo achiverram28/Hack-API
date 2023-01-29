@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
-from DB_func import mlh, devfolio , open_source , cp , event_brite, student_dev , gdg , aws , ios , microsoft
+from DB_func import mlh, devfolio , open_source , cp , student_dev , gdg , aws , ios , microsoft
 from fastapi_jwt_auth import AuthJWT
 ##################################
 from app.config import settings
