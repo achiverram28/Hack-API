@@ -3,12 +3,12 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
-from DB_func import mlh, devfolio , open_source , cp , student_dev , gdg , aws , ios , microsoft
+from DB_func import mlh, devfolio , open_source , cp ,  student_dev , gdg , aws , ios , microsoft
 from fastapi_jwt_auth import AuthJWT
 ##################################
-from app.config import settings
-from app.routers import auth,user 
-from app import oauth2
+from authentication.config import settings
+from authentication.routers import auth,user 
+from authentication import oauth2
 ################################
 app = FastAPI()
 origins = [
@@ -36,7 +36,7 @@ app.include_router(user.router, tags=['Users'], prefix='/api/users')
 def welcome(request:Request):
     return templates.TemplateResponse("welcome.html",{"request":request})
 @app.get("/hackathons",response_class=HTMLResponse)
-def hackathons(request:Request):
+def hackathons(request:Request,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
     return templates.TemplateResponse("hackathons.html",{"request":request})
 @app.get("/hackathons/mlh",response_class=HTMLResponse)
 async def mlh_hac(request:Request,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
@@ -145,4 +145,5 @@ def microsoft_events_json(Authorize: AuthJWT = Depends(), user_id: str = Depends
 async def microsoft_events(request:Request,Authorize: AuthJWT = Depends(), user_id: str = Depends(oauth2.require_user)):
     ans = microsoft.fetchAll()
     return templates.TemplateResponse("microsoft.html",{"request":request,"ans":ans})
+
 
