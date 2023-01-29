@@ -1,10 +1,10 @@
 from datetime import datetime, timedelta
 from bson import ObjectId
 from fastapi import APIRouter , Response, status, Depends, HTTPException 
-from app import oauth2,schemas,utils
-from app.database import User
-from app.serializers.userSerializers import userEntity,userResponseEntity
-from app.oauth2 import AuthJWT
+from authentication import oauth2,schemas,utils
+from authentication.database import User
+from authentication.serializers.userSerializers import userEntity,userResponseEntity
+from authentication.oauth2 import AuthJWT
 from ..config import settings
 
 router = APIRouter()
@@ -83,3 +83,4 @@ def logout(response: Response, Authorize: AuthJWT = Depends(), user_id: str = De
     response.set_cookie('logged_in', '', -1)
 
     return {'status': 'success'}
+
