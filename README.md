@@ -68,3 +68,25 @@ uvicorn app.main:app --reload
 - If you want to logout , then you will have to go to http:127.0.0.1/docs and /api/auth/logout and click on Try It and then Execute.
 
 <img width="1408" alt="8D7EB593-E95E-4DC7-9786-D065FB3DEC35" src="https://user-images.githubusercontent.com/97288756/215720507-0dfdc4f8-86e4-4215-90ea-37a5fc5b5647.png">
+
+## Usage Modes
+
+- Normal Web Version => Data in formatted web page
+
+- Api Developer Version => Data in json format , where the developers can use the json format for indexing and using the data . If you add .json at the end of the url , you will be able to see this. 
+
+## Features 
+
+- Hackathons => { MLH, DEVFOLIO , OPEN SOURCE , COMPETITIVE CODING }
+
+-  GDG EVENTS 
+
+- AWS EVENTS 
+
+- MICROSOFT AZURE EVENTS 
+
+- STUDENT DEVELOPER SUPPORT DETAILS
+
+## Developer 
+
+Ram Samarth B B => achiverram28@gmail.com  
