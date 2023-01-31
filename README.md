@@ -18,7 +18,6 @@ Hack-Api is an API which provides data and details about most of the technical e
 docker pull achiverram28/hack-api-image:latest
 docker run -d --name <yourcontainername> -p 80:80 achiverram28/hack-api-image:latest
 
-
 ```
 2. Using Git Clone
 ```
@@ -32,8 +31,6 @@ pip3 install -r requirements.txt
 
 //Running the server
 uvicorn app.main:app --reload
-
-
 
 ```
 
