@@ -37,6 +37,10 @@ uvicorn app.main:app --reload
 ```
 ## Swagger UI Docs
 
+Swagger UI => http:localhost/docs 
+
+Redocs => http:localhost/redoc
+
 <img width="1405" alt="Image" src="https://user-images.githubusercontent.com/97288756/215673473-7dc38c90-8380-4357-8ac2-aeab209cd0e6.jpeg">
 
 <img width="1405" alt="3E7D2E67-71EE-4D1A-98FB-A8521538E90A" src="https://user-images.githubusercontent.com/97288756/215673485-3b932c04-aef3-4e65-8961-7706baa0dcfc.png">
