@@ -4,12 +4,13 @@
 
 Hack-Api is an API which provides data and details about most of the technical events including Hackathons , GDG-Events , AWS- Events , Microsoft Azure Events , iOS events , Student Developer Details.  
 # Tech Stacks Used
-- Fast API
+- FastAPI
 - MongoDB
 - Jinja 2.0 
 - JWT 
-- Bcrypt
+- RS256
 - DockerFile
+
 # Installation 
 
 1. Using Docker (Must have Docker Desktop installed and it must be running )
@@ -33,4 +34,15 @@ pip3 install -r requirements.txt
 uvicorn app.main:app --reload
 
 ```
+## Swagger UI Docs
+
+<img width="1405" alt="Image" src="https://user-images.githubusercontent.com/97288756/215673473-7dc38c90-8380-4357-8ac2-aeab209cd0e6.jpeg">
+
+<img width="1405" alt="3E7D2E67-71EE-4D1A-98FB-A8521538E90A" src="https://user-images.githubusercontent.com/97288756/215673485-3b932c04-aef3-4e65-8961-7706baa0dcfc.png">
+
+<img width="1405" alt="4156AAD3-C12A-4839-B8A7-18F142E4A3D7" src="https://user-images.githubusercontent.com/97288756/215673752-35262be8-2c6d-4ca9-9f40-6e6e7421cda8.png">
+
+<img width="1405" alt="0BA3D0C7-E7B0-49CD-BEF8-542CCD9FB8C4" src="https://user-images.githubusercontent.com/97288756/215673789-0e296f96-aa0d-47fc-bf80-e4f32bb8fc4b.png">
+
+
 
