@@ -45,4 +45,12 @@ uvicorn app.main:app --reload
 <img width="1405" alt="0BA3D0C7-E7B0-49CD-BEF8-542CCD9FB8C4" src="https://user-images.githubusercontent.com/97288756/215673789-0e296f96-aa0d-47fc-bf80-e4f32bb8fc4b.png">
 
 
+## Usage and Naming Guidelines
+
+- When you want to enter the month name in the url , enter the first three letters of the month name with first letter being captial and the rest being in lower case : Ex January => Jan . ** Only in Open Source events use full name of month :Ex January => January. **
+
+- For type of event in mlh you will have to use => a) online b) in_person c) Hybrid
+
+- For name , if you have spaces in the event name, cover it up with _   . Example : Google Summer of Code => Google_Summer_of_Code
+
 
