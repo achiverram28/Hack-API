@@ -2,9 +2,5 @@
 v: 0
 micros:
   - name: PythonProject
-    src: .
+    src: ./app
     engine: python3.9
-    primary: true
-    commands:
-      - pip3 install -r requirements.txt
-    run: uvicorn app.main:app --host 0.0.0.0
