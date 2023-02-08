@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{{ url_for('static', path='/gdg.css') }}" rel="stylesheet" />
+    <title>Open Source Events</title>
+  </head>
+  <body>
+    <table class="styled-table">
+      <thead>
+        <th>Name</th>
+        <th>Month</th>
+        <th>Link</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        {% for eve in ans%}
+        <tr>
+          <td>{{ eve["Names"] }}</td>
+          <td>{{ eve["Month"] }}</td>
+          <td>{{ eve["Link"] }}</td>
+          <td>{{ eve["Description"] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

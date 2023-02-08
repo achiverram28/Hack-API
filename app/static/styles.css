@@ -1,0 +1,92 @@
+body {
+  background-color: #13151d;
+  padding: 0;
+  scroll-behavior: smooth;
+  color: white;
+}
+
+ul {
+  list-style: none;
+}
+.header {
+  padding-top: 5rem;
+  padding-left: 3rem;
+  color: white;
+}
+
+.header p {
+  margin-top: 2%;
+  width: 75%;
+  font-size: 2rem;
+  color: aqua;
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.context {
+  padding-left: 10rem;
+  margin-top: 2%;
+  width: 80%;
+  font-size: 1.75rem;
+  color: aqua;
+  text-align: center;
+}
+.header-h1 {
+  color: white;
+  padding-left: 3rem;
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+@media (max-width: 992px) {
+  .header {
+    padding-left: 0;
+    text-align: center;
+    justify-content: center;
+  }
+  .header p {
+    margin: auto;
+    width: 75%;
+    font-size: 1.25rem;
+  }
+  .header p h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    padding-left: 10%;
+  }
+}
+.container {
+  margin-top: 10rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-color: #45a29e;
+  color: black;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  border-radius: 2rem;
+  border-color: blue;
+  border-width: 10px;
+  gap: 5rem;
+  padding: 3rem;
+}
+.img_class {
+  border-radius: 20%;
+}
+.text {
+  /* color: rgb(43, 41, 41); */
+  padding-top: 5rem;
+  font-size: 1.5rem;
+  padding-right: 1.5rem;
+  color: white;
+}
+.buttons {
+  background-color: #66fcf1;
+  border-radius: 2rem;
+  height: 4rem;
+  width: 80%;
+  margin-right: 5rem;
+  margin-left: 10%;
+  font-size: 1.25rem;
+}
